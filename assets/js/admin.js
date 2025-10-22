@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 });
 
-function adminManager() {
+function adminManager(data) {
     return {
         // Modal State
         isModalOpen: false,
@@ -25,9 +25,9 @@ function adminManager() {
         editMethod: {},
 
         // Data
-        allOrders: [],
-        existingCustomerPhones: [],
-        allCustomers: [],
+        allOrders: data.allOrders,
+        existingCustomerPhones: data.existingCustomerPhones,
+        allCustomers: data.allCustomers,
 
         // Order Pagination & Search
         searchQuery: '',

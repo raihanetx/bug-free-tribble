@@ -20,7 +20,7 @@ $error_message = '';
 
 // If already logged in, redirect to the admin panel
 if (isset($_SESSION['loggedin']) && $_SESSION['loggedin'] === true) {
-    header('Location: admin.php');
+    header('Location: admin/admin.php');
     exit;
 }
 
@@ -29,7 +29,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     if (isset($_POST['password']) && $_POST['password'] === $ADMIN_PASSWORD) {
         // Password is correct, set session variable
         $_SESSION['loggedin'] = true;
-        header('Location: admin.php');
+        header('Location: admin/admin.php');
         exit;
     } else {
         $error_message = 'Invalid password. Please try again.';

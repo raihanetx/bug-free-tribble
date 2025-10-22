@@ -3,12 +3,12 @@ session_start();
 
 // --- Security Check ---
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: login.php');
+    header('Location: ../login.php');
     exit;
 }
 
 // --- Load Data ---
-$data_file_path = 'products.json';
+$data_file_path = '../products.json';
 $all_data = json_decode(file_get_contents($data_file_path), true);
 $product_to_edit = null;
 $category_name = $_GET['category'] ?? '';
@@ -58,7 +58,7 @@ if (!$product_to_edit) {
     <div class="container mx-auto p-4 max-w-3xl">
         <div class="bg-white p-6 rounded-lg shadow-md border">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Edit Product: <span class="text-[var(--primary-color)]"><?= htmlspecialchars($product_to_edit['name']) ?></span></h1>
-            <form action="api.php" method="POST" enctype="multipart/form-data" class="space-y-4">
+            <form action="../api.php" method="POST" enctype="multipart/form-data" class="space-y-4">
                 <input type="hidden" name="action" value="edit_product">
                 <input type="hidden" name="category_name" value="<?= htmlspecialchars($category_name) ?>">
                 <input type="hidden" name="product_id" value="<?= htmlspecialchars($product_id) ?>">
@@ -122,7 +122,7 @@ if (!$product_to_edit) {
                     <label class="block mb-1.5 font-medium text-gray-700 text-sm">Product Image</label>
                     <?php if (!empty($product_to_edit['image'])): ?>
                         <div class="my-2">
-                            <img src="<?= htmlspecialchars($product_to_edit['image']) ?>" class="w-24 h-24 object-cover rounded-md border">
+                            <img src="../<?= htmlspecialchars($product_to_edit['image']) ?>" class="w-24 h-24 object-cover rounded-md border">
                             <div class="flex items-center gap-2 mt-2">
                                 <input type="checkbox" name="delete_image" id="delete_image" value="true" class="h-4 w-4 rounded border-gray-300 text-red-600 focus:ring-red-500">
                                 <label for="delete_image" class="text-sm text-red-600 font-medium">Delete current image</label>

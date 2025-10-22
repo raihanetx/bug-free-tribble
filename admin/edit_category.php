@@ -3,12 +3,12 @@ session_start();
 
 // --- Security Check ---
 if (!isset($_SESSION['loggedin']) || $_SESSION['loggedin'] !== true) {
-    header('Location: login.php');
+    header('Location: ../login.php');
     exit;
 }
 
 // --- Load Data ---
-$data_file_path = 'products.json';
+$data_file_path = '../products.json';
 $all_data = json_decode(file_get_contents($data_file_path), true);
 $category_to_edit = null;
 $category_name = $_GET['name'] ?? '';
@@ -51,7 +51,7 @@ if (!$category_to_edit) {
     <div class="container mx-auto p-4 max-w-lg">
         <div class="bg-white p-6 md:p-8 rounded-lg shadow-md border">
             <h1 class="text-2xl font-bold text-gray-800 mb-6">Edit Category</h1>
-            <form action="api.php" method="POST" class="space-y-4">
+            <form action="../api.php" method="POST" class="space-y-4">
                 <input type="hidden" name="action" value="edit_category">
                 <input type="hidden" name="original_name" value="<?= htmlspecialchars($category_to_edit['name']) ?>">
                 

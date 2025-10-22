@@ -1,4 +1,8 @@
 <?php
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 // --- Helper Functions ---
 function get_data($file_path) {
     if (!file_exists($file_path)) file_put_contents($file_path, '[]');

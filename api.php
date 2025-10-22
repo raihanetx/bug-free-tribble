@@ -1,9 +1,6 @@
 <?php
 // api.php - Handles all backend logic for categories, products, coupons, and orders
 
-use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
-
 require 'PHPMailer/Exception.php';
 require 'PHPMailer/PHPMailer.php';
 require 'PHPMailer/SMTP.php';
